@@ -4,10 +4,20 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>2nd_hw_ParkJinsoo.xcscheme_^#shared#^_</key>
+		<key>GrammarPractice (Playground) 1.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
-			<integer>4</integer>
+			<integer>1</integer>
+		</dict>
+		<key>GrammarPractice (Playground) 2.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
+		<key>GrammarPractice (Playground) 3.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
 		</dict>
 		<key>GrammarPractice (Playground).xcscheme</key>
 		<dict>
