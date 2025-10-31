@@ -355,7 +355,7 @@ struct ContentView: View {
                             Text("내 자산 숨기기")
                                 .font(.system(size:15))
                                 .foregroundStyle(.gray)
-                            Spacer()
+                            Spacer()    
                             Text("금액 가리기")
                                 .font(.system(size:15.3))
                                 .foregroundStyle(.gray)
