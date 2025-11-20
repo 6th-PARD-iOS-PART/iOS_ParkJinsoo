@@ -8,12 +8,14 @@
 import SwiftUI
 
 struct Row2_frommytoss: View {
+    var moneyContainer: MoneyContainer
+    
     var body: some View {
         
         HStack{ //내 토스뱅크 통장에서
             VStack(alignment:.leading){
                 HStack{
-                    Text("내 토스뱅크 통장")
+                    Text("내 \(moneyContainer.selectedName)")
                         .foregroundStyle(.black)
                         .bold()
                         .font(.system(size:22))
@@ -43,5 +45,5 @@ struct Row2_frommytoss: View {
 }
 
 #Preview {
-    Row2_frommytoss()
+    Row2_frommytoss(moneyContainer: MoneyContainer())
 }

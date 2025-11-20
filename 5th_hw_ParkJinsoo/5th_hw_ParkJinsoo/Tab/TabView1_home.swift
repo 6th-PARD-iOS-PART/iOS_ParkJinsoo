@@ -57,7 +57,7 @@ struct TabView1_home: View {
                     TabView1_3_Main(path: $path)
                         .environment(infoContainer)
                 }else if value == "TabView1_4_Main"{
-                    TabView1_4_Main(path: $path)
+                    TabView1_4_Main(path: $path, moneyContainer: moneyContainer)
                         .environment(infoContainer)
                 }else if value == "TabView1_5_Main"{
                     TabView1_5_Main(path: $path)

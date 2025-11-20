@@ -41,6 +41,7 @@ struct ListCell: View {
                 if(data.icon=="bank3"){
                     Button{
                         moneyContainer.selectedMoney = data.money
+                        moneyContainer.selectedName = data.name
                         path.append("TabView1_2_Main")
                     } label: {
                         ZStack{
@@ -60,6 +61,7 @@ struct ListCell: View {
                 }else{
                     Button{
                         moneyContainer.selectedMoney = data.money //클래스에 데이터 저장
+                        moneyContainer.selectedName = data.name
                         path.append("TabView1_2_Main")
                     } label: {
                             ZStack{

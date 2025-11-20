@@ -15,7 +15,11 @@ struct CategoryView: View {
         } else {
             return ShopData.product.filter { $0.category == category }
         }
-    }
+            }
+    
+    var sortedProducts: [ShopData] {
+            filteredProducts.sorted { $0.price < $1.price }   // 가격 오름차순
+        }
     
     var body: some View {
         ScrollView {
@@ -26,7 +30,7 @@ struct CategoryView: View {
                     .padding(.leading,20)
                     .padding(.top, 8)
                 
-                ForEach(filteredProducts) { product in
+                ForEach(sortedProducts) { product in
                     ProductCard(product: product)
                 }
             }

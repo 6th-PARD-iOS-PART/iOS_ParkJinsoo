@@ -11,6 +11,7 @@ struct Row4_movehowmuch: View {
     @Binding var path: NavigationPath
     @Binding var amount: String
     @Binding var isOn: Bool
+
     
     var body: some View {
         
@@ -64,48 +65,25 @@ struct Row4_movehowmuch: View {
         } //얼마나 옮길까요?
         
         Spacer()
+
         
+        let digits = amount.filter { $0.isNumber }
         
-        if isOn{
-            Button{
-                path.append("TabView1_5_Main")
-            }label:{
-                ZStack{
-                Rectangle()
-                    .frame(height:60)
-                    .foregroundColor(Color(red:49/255,
-                        green:130/255, blue:246/255))
-                    .padding(.bottom,20)
-                Text("다음")
-                    .font(.system(size:18))
-                    .foregroundColor(Color(red:212/255, green:228/255, blue:252/255))
-                    .padding(.bottom,20)
-            }
-        }
-        }
-        
-        
-        
-        //값이 들어가기 전 = 버튼 없음
-        //송금 가능한 값 = 버튼 생김
-        // 송금 불가능한 값 = 버튼 비활성화
-        if let inter = Int(amount){ //@State이슈
-            if inter < 1{ //버튼없음 -
-//                        ZStack{
-//                            Rectangle()
-//                                .fill(.white)
-//                            .frame(height:60)}
+        if let inter = Int(digits) {
+            if inter < 1 {
+                // 금액 0원 이하면 버튼 안보임
                 Text("")
-                    .padding(.bottom,-30)
-            }else if inter < 26657{  //버튼 생김
-                    Button{
-                        path.append("TabView1_5_Main")
-                    }label:{
-                        ZStack{
+                    .padding(.bottom, -30)
+            } else if inter <= 26656 {
+                // 송금 가능 구간 -> 활성화
+                Button{
+                    path.append("TabView1_5_Main")
+                } label: {
+                    ZStack{
                         Rectangle()
                             .frame(height:60)
                             .foregroundColor(Color(red:49/255,
-                                green:130/255, blue:246/255))
+                                                   green:130/255, blue:246/255))
                             .padding(.bottom,20)
                         Text("다음")
                             .font(.system(size:18))
@@ -113,7 +91,8 @@ struct Row4_movehowmuch: View {
                             .padding(.bottom,20)
                     }
                 }
-            }else{ //버튼 비활성화
+            } else {
+                // 송금 불가 구간 → 비활성화
                 ZStack{
                     Rectangle()
                         .frame(height:60)
@@ -124,12 +103,10 @@ struct Row4_movehowmuch: View {
                         .font(.system(size:18))
                         .foregroundColor(Color(red:245/255, green:249/255, blue:254/255))
                         .padding(.bottom,20)
-                    }
-            }//else
-        } //if let
+                }
+            }
+        }
     
-        
-        
 
          
     }

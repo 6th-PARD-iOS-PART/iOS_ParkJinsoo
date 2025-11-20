@@ -10,4 +10,5 @@ import Observation
 @Observable
 class MoneyContainer{
     var selectedMoney: String = "0원"
+    var selectedName: String = "내 토스뱅크 통장"
 }

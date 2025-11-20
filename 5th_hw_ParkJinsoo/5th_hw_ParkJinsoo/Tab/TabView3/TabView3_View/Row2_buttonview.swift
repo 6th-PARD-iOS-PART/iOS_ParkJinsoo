@@ -10,7 +10,6 @@ import SwiftUI
 struct Row2_buttonview: View {
     let categories = ["모두", "특가", "식품", "의류", "전자제품", "뷰티"]
     @Binding var selectedCategory: String
-    @Binding var path: NavigationPath
     
     var body: some View {
         
@@ -18,8 +17,6 @@ struct Row2_buttonview: View {
             ForEach(categories, id: \.self) { category in
                 Button {
                     selectedCategory = category
-                    if category != "모두" {
-                        path.append(category)}
                 } label: {
                     Text(category)
                         .font(.system(size: 16, weight: .semibold))
@@ -28,15 +25,9 @@ struct Row2_buttonview: View {
                 }.background(
                     VStack {
                         Spacer()
-                        if selectedCategory == category {
-                            Rectangle()
-                                .fill(Color.blue)
-                                .frame(height: 2)
-                        } else {
-                            Rectangle()
-                                .fill(Color.clear)
-                                .frame(height: 2)
-                        }
+                        Rectangle()
+                            .fill(selectedCategory == category ? Color.blue : .clear)
+                            .frame(height: 2)
                     }
                 )
             }
@@ -48,6 +39,5 @@ struct Row2_buttonview: View {
 }
 
 #Preview {
-    Row2_buttonview(selectedCategory: .constant("모두"),
-    path: .constant(NavigationPath()))
+    Row2_buttonview(selectedCategory: .constant("모두"))
 }

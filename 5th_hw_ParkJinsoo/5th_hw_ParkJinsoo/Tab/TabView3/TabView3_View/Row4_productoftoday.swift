@@ -30,12 +30,6 @@ struct Row5_productoftoday: View {
                 )
                 .padding(.trailing,30)
         }
-
-
-        ForEach(ShopOrder.sortedByLowestPrice){ product in
-            ProductCard(product: product)
-        }
-
         
     }
 }
